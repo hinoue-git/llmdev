@@ -37,5 +37,6 @@ def test_login_success(authenticator, username, password):
 
 # ログインのエラーテスト
 def test_login_error(authenticator):
+    authenticator.register('username1', 'password1')
     with pytest.raises(ValueError, match="エラー: ユーザー名またはパスワードが正しくありません。"):
         authenticator.login('username1', 'password0')
